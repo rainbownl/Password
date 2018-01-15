@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_gray">#7D7D7D</color>
+    
+    
+    <color name="button_lightgray">#797979</color>
+    <color name="button_darkergray">#797979</color>
+    <color name="button_clickyellow">#DDC413</color>
+    <color name="divider_lightgray">#C9C9C9</color>
+    <color name="text_color">#000000</color>
+    <color name="textview_bgcolor">#55cccccc</color>
+    
+</resources>

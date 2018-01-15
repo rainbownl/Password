@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:layout_marginTop="50dp"
+	    android:layout_gravity="center_vertical" >
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+		    android:textSize="20sp"
+		    android:layout_margin="10dp"
+	        android:text="@string/Username" />
+	    <TextView 
+	        android:id="@+id/tvDetailUsername"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+		    android:layout_margin="10dp"
+	        android:textSize="28sp" />
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+		    android:textSize="20sp"
+		    android:layout_margin="10dp"
+	        android:text="@string/Password" />
+	    <TextView 
+	        android:id="@+id/tvDetailPassword"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+		    android:layout_margin="10dp"
+	        android:textSize="28sp" />
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:layout_alignParentBottom="true" >
+		<Button 
+		    android:id="@+id/btnDetailEdit"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content" 
+		    android:layout_weight="1"
+			android:textSize="20sp"
+		    android:padding="10dp"
+		    android:layout_margin="10dp"
+		    android:text="@string/Edit"	/>
+	    <Button 
+	        android:id="@+id/btnDetailDelete"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+			android:textSize="20sp"
+		    android:padding="10dp"
+		    android:layout_margin="10dp"
+	        android:text="@string/Delete"	/>
+	</LinearLayout>
+</RelativeLayout>

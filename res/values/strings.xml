@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PasswordActivity!</string>
+    <string name="app_name">烂笔头</string>
+    <string name="InputPasswordHint">请在此输入密码：</string>
+    <string name="Login">登录</string>
+    <string name="InputPasswordHint2">请再次输入密码：</string>
+    <string name="Confirm">确定</string>
+    <string name="AddRecordTip">您还没有添加记录！点击菜单键弹出菜单栏即可添加。</string>
+    <string name="About">关于</string>
+    <string name="AboutMessage">好记性不如烂笔头，欢迎使用本软件！</string>
+    <string name="IKnow">知道了</string>
+    <string name="AddItem">添加</string>
+    <string name="ChangePassword">修改密码</string>
+    <string name="IncompleteInfo">信息不完整，请输入完整的信息。</string>
+    <string name="Delete">删除</string>
+    <string name="DonotDelete">不删除</string>
+    <string name="DeleteItemWarning">是否要删除当前项？</string>
+    <string name="WrongLicense">密码输入错误！</string>
+    <string name="ForgetPassword">忘记密码</string>
+    <string name="ResetPassword">我要重置</string>
+    <string name="DonotResetPassword">我再想想</string>
+    <string name="ResetPasswordWarning">真的想不起来了么？只能重置数据啦！这样会丢失所有已保存的数据！</string>
+    <string name="SetPasswordTip">您还没有设置密码，请设置登入密码。</string>
+    <string name="RepeatPasswordErr">两次密码输入不一致！</string>
+    <string name="InputTitle">请输入简要描述:</string>
+    <string name="InputUsername">请输入用户名：</string>
+    <string name="InputPassword">请输入密码:</string>
+    <string name="Username">用户名：</string>
+    <string name="Password">密码：</string>
+    <string name="Edit">编辑</string>
+    <string name="InputPasswordEmpty">您没有输入密码。</string>
+    <string name="QuitAppTips">再按一次退出程序。</string>
+    <string name="SetBackground">更改背景</string>
+
+</resources>
