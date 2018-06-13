@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -74,7 +75,7 @@ public class ContentActivity extends Activity {
 				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 				intent.setType("image/");
 				intent.addCategory(Intent.CATEGORY_OPENABLE);
-				startActivityForResult(Intent.createChooser(intent, "ÇëÑ¡ÔñÒ»ÕÅÍ¼Æ¬"), FILE_SELECT_CODE);
+				startActivityForResult(Intent.createChooser(intent, "è¯·é€‰æ‹©ä¸€å¼ å›¾ç‰‡"), FILE_SELECT_CODE);
 				break;
 			}
 			case MENU_ID_ABOUT:
@@ -93,8 +94,8 @@ public class ContentActivity extends Activity {
 		setContentView(R.layout.content);
 		
 		ListView listview = (ListView)findViewById(R.id.listView);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getData());
-		listview.setAdapter(adapter);
+		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_listview, getData());
+		//listview.setAdapter(adapter);
 		listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> av, View view, int position,
@@ -129,7 +130,7 @@ public class ContentActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		ListView listview = (ListView)findViewById(R.id.listView);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getData());
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_listview, R.id.listViewItem_text, getData());
 		listview.setAdapter(adapter);
 	}
 

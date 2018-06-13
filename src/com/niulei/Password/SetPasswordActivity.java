@@ -3,11 +3,15 @@ package com.niulei.Password;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class SetPasswordActivity extends Activity implements OnClickListener{
@@ -26,6 +30,32 @@ public class SetPasswordActivity extends Activity implements OnClickListener{
 		bMode = bundle.getByte(OPT_FIRSTIN);
 		if(bMode == 1){
 			Toast.makeText(this, R.string.SetPasswordTip, Toast.LENGTH_LONG).show();
+		}
+
+		EditText edtSet2 = (EditText)findViewById(R.id.edtPassword2);
+		if (edtSet2 != null){
+			edtSet2.addTextChangedListener(new TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+				}
+
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {
+					EditText edtSet = (EditText)findViewById(R.id.edtPassword);
+					if (edtSet != null){
+						String s1 = edtSet.getText().toString();
+						if (s1.compareTo(s.toString()) == 0){
+
+						}
+					}
+				}
+
+				@Override
+				public void afterTextChanged(Editable s) {
+
+				}
+			});
 		}
 		//updateBackgroundDrawable();
 	}

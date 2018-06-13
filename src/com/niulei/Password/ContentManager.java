@@ -41,7 +41,7 @@ public class ContentManager{
 		return true;
 	}
 	
-	//´ÓÎÄ¼şÖĞ¶ÁÈ¡ÄÚÈİ
+	//ä»æ–‡ä»¶ä¸­è¯»å–å†…å®¹
 	@SuppressWarnings("resource")
 	public int readData(){
 		FileInputStream fileinputstream = null;
@@ -115,7 +115,7 @@ public class ContentManager{
 		return 0;
 	}
 	
-	//½«Êı¾İĞ´Èëµ½ÎÄ¼şÖĞ
+	//å°†æ•°æ®å†™å…¥åˆ°æ–‡ä»¶ä¸­
 	@SuppressWarnings("resource")
 	public int writeData(){		
 		FileOutputStream fileoutputstream = null;

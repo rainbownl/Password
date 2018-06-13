@@ -10,9 +10,9 @@
 	    android:focusable="false"
 	    android:scrollbars="vertical"
 	    android:cacheColorHint="#00000000"
-	    android:background="@color/textview_bgcolor"
+	    android:background="@color/listview_bgcolor"
 	    android:divider="@color/divider_lightgray"
 	    android:dividerHeight="0.8dp"
-	    android:textSize="28sp" >
+	    android:textSize="24sp" >
 	</ListView>
 </LinearLayout>

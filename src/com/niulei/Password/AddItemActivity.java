@@ -11,9 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class AddItemActivity extends Activity implements OnClickListener{
-	public static final String OPT_MODIFY_OR_ADD = "modify_or_add"; //0 Ìí¼Ó 1 ĞŞ¸Ä
-	public static final String OPT_MODIFY_INDEX = "modify_index";  //µ±Ç°ĞŞ¸ÄÏî
-	
+	public static final String OPT_MODIFY_OR_ADD = "modify_or_add"; //0 æ·»åŠ  1 ä¿®æ”¹
+	public static final String OPT_MODIFY_INDEX = "modify_index";  //å½“å‰ä¿®æ”¹é¡¹
+
 	private byte bModifyFlag = 0;
 	private int iModifyIndex = 0;
 	@Override
@@ -21,7 +21,7 @@ public class AddItemActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.additem);
-		
+
 		Button btnOK = (Button)findViewById(R.id.btnOK);
 		btnOK.setOnClickListener(this);
 		

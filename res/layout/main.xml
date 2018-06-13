@@ -16,6 +16,7 @@
 	            android:layout_height="wrap_content"
 	            android:textSize="20sp"
 		        android:padding="10dp"
+				android:textColor="@color/text_color"
 	            android:text="@string/InputPasswordHint" />
 		    <EditText
 		        android:id="@+id/editText"
@@ -40,7 +41,8 @@
 			        android:text="@string/Login"
 				    android:padding="10dp"
 				    android:layout_margin="10dp"
-			        android:layout_weight="1" >
+			        android:layout_weight="1"
+					android:background="@color/button_lightgray">
 			        
 			    </Button>
 		        <Button 
@@ -50,7 +52,8 @@
 		            android:layout_weight="1"
 				    android:padding="10dp"
 				    android:layout_margin="10dp"
-		            android:text="@string/ForgetPassword"	/>       
+		            android:text="@string/ForgetPassword"
+					android:background="@color/button_lightgray"/>
 		    </LinearLayout>
         </LinearLayout>
     

@@ -34,6 +34,11 @@ public class ItemDetailActivity extends Activity implements OnClickListener{
 			
 			TextView tvPassword = (TextView)findViewById(R.id.tvDetailPassword);
 			tvPassword.setText(contentManager.getPassword(index));
+
+			TextView tvTitle = (TextView)findViewById(R.id.textView_Title);
+			if (tvTitle != null){
+				tvTitle.setText(contentManager.getTitle(index));
+			}
 		}
 		//updateBackgroundDrawable();
 	}

@@ -12,6 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 			android:layout_margin="10dp"
+			android:textColor="@color/text_color"
             android:text="@string/InputTitle" />
         <EditText 
             android:id="@+id/edtAddTitle"
@@ -27,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 			android:layout_margin="10dp"
+			android:textColor="@color/text_color"
             android:text="@string/InputUsername" />
         <EditText 
             android:id="@+id/edtAddUsername"
@@ -42,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 			android:layout_margin="10dp"
+			android:textColor="@color/text_color"
             android:text="@string/InputPassword" />
         <EditText 
             android:id="@+id/edtAddPassword"
@@ -59,7 +62,8 @@
             android:layout_height="wrap_content"
 		    android:padding="10dp"
 			android:layout_margin="10dp"
-            android:text="@string/Confirm" />
+            android:text="@string/Confirm"
+			android:background="@color/button_lightgray"/>
     </LinearLayout>
 
 </LinearLayout>

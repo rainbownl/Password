@@ -5,4 +5,8 @@
 	    <item name="android:windowBackground">@android:color/white</item>
 	
 	</style>
+	<style name="AppTheme" parent="android:Theme.NoTitleBar">
+		<!-- <item name="android:windowBackground">@drawable/background_img</item>  -->
+		<item name="android:background">@color/window_background_color</item>
+	</style>
 </resources>

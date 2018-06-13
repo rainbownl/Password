@@ -24,7 +24,7 @@
     <string name="ResetPasswordWarning">真的想不起来了么？只能重置数据啦！这样会丢失所有已保存的数据！</string>
     <string name="SetPasswordTip">您还没有设置密码，请设置登入密码。</string>
     <string name="RepeatPasswordErr">两次密码输入不一致！</string>
-    <string name="InputTitle">请输入简要描述:</string>
+    <string name="InputTitle">请输入标题:</string>
     <string name="InputUsername">请输入用户名：</string>
     <string name="InputPassword">请输入密码:</string>
     <string name="Username">用户名：</string>
