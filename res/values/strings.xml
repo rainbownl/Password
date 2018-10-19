@@ -33,5 +33,9 @@
     <string name="InputPasswordEmpty">您没有输入密码。</string>
     <string name="QuitAppTips">再按一次退出程序。</string>
     <string name="SetBackground">更改背景</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_message">
+        如有问题，联系我\nQQ:914910941\nWeChat:同上\neMail:rainbownl@163.com
+    </string>
 
 </resources>

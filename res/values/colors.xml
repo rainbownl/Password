@@ -2,12 +2,12 @@
 <resources>
     <color name="background_gray">#898989</color>
     <color name="button_lightgray">#55797979</color>
-    <color name="button_darkergray">#797979</color>
+    <color name="button_darkergray">#AA797979</color>
     <color name="button_clickyellow">#DDC413</color>
     <color name="divider_lightgray">#C9C9C9</color>
     <color name="text_color">#FF000000</color>
     <color name="textview_bgcolor">#55cccccc</color>
     <color name="listview_bgcolor">#33454545</color>
-    <color name="detail_titlebg">#55000000</color>
+    <color name="detail_titlebg">#33333333</color>
     <color name="window_background_color">#EFE4B0</color>
 </resources>

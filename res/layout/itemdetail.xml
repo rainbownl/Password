@@ -6,11 +6,11 @@
     <TextView
 		android:id="@+id/textView_Title"
 		android:textColor="@color/text_color"
-		android:textSize="28dp"
+		android:textSize="28sp"
 		android:background="@color/detail_titlebg"
 		android:gravity="center"
-		android:paddingTop="10dp"
-		android:paddingBottom="10dp"
+		android:paddingTop="5dp"
+		android:paddingBottom="5dp"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"/>
 	<LinearLayout 
@@ -64,19 +64,19 @@
 		    android:layout_height="wrap_content" 
 		    android:layout_weight="1"
 			android:textSize="20sp"
-		    android:padding="10dp"
-		    android:layout_margin="10dp"
+		    android:paddingTop="5dp"
+			android:paddingBottom="5dp"
 		    android:text="@string/Edit"
-			android:background="@color/button_lightgray" />
+			android:background="@drawable/button_bgcolor_selector" />
 	    <Button 
 	        android:id="@+id/btnDetailDelete"
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"
 			android:textSize="20sp"
-		    android:padding="10dp"
-		    android:layout_margin="10dp"
+		    android:paddingTop="5dp"
+			android:paddingBottom="5dp"
 	        android:text="@string/Delete"
-			android:background="@color/button_lightgray"/>
+			android:background="@drawable/button_bgcolor_selector"/>
 	</LinearLayout>
 </RelativeLayout>

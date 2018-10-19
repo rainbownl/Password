@@ -1,23 +1,13 @@
-package com.niulei.Password;
+package com.niulei.password.activity;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.hardware.display.DisplayManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -25,9 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.niulei.password.R;
+import com.niulei.password.content.DBContentManager;
 
 public class ContentActivity extends Activity {
 	private static final int MENU_GROUP_ID = 0;
@@ -36,11 +28,9 @@ public class ContentActivity extends Activity {
 	private static final int MENU_ID_SETBG = 2;
 	private static final int MENU_ID_ABOUT = 3;
 	private static final int FILE_SELECT_CODE = 100;
-	private static final int IMAGE_CROP_CODE = 101;
 	private long exitTime = 0;
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
 		menu.add(MENU_GROUP_ID, MENU_ID_ADD, MENU_ID_ADD, R.string.AddItem);
 		menu.add(MENU_GROUP_ID, MENU_ID_MODIFY_PSW, MENU_ID_MODIFY_PSW, R.string.ChangePassword);
 		//menu.add(MENU_GROUP_ID, MENU_ID_SETBG, MENU_ID_SETBG, R.string.SetBackground);
@@ -50,7 +40,6 @@ public class ContentActivity extends Activity {
 
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		// TODO Auto-generated method stub
 		switch(item.getItemId()){
 			case MENU_ID_ADD:
 			{
@@ -89,18 +78,16 @@ public class ContentActivity extends Activity {
 
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.content);
 		
-		ListView listview = (ListView)findViewById(R.id.listView);
+		ListView listview = findViewById(R.id.listView);
 		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_listview, getData());
 		//listview.setAdapter(adapter);
 		listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> av, View view, int position,
 					long id) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent(ContentActivity.this, ItemDetailActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putInt(ItemDetailActivity.OPT_DETAIL_INDEX, position);
@@ -108,7 +95,7 @@ public class ContentActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-		if(ContentManager.getInstance().getNumOfItem() <= 0){
+		if(DBContentManager.Companion.getInstance(getApplicationContext()).getCount() <= 0){
 			Toast.makeText(this, R.string.AddRecordTip, Toast.LENGTH_LONG).show();
 		}
 		//updateBackgroundDrawable();
@@ -117,9 +104,9 @@ public class ContentActivity extends Activity {
 	List<String> getData()
 	{
 		List<String> data = new ArrayList<String>();
-		ContentManager contentmanager = ContentManager.getInstance();
-		for(int i = 0; i < contentmanager.getNumOfItem(); i++){
-			data.add(contentmanager.getTitle(i));
+		DBContentManager contentmanager = DBContentManager.Companion.getInstance(getApplicationContext());
+		for(int i = 0; i < contentmanager.getCount(); i++){
+			data.add(contentmanager.getItem(i).getTitle());
 		}
 		return data;
 	}
@@ -127,22 +114,19 @@ public class ContentActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
-		ListView listview = (ListView)findViewById(R.id.listView);
+		ListView listview = findViewById(R.id.listView);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_listview, R.id.listViewItem_text, getData());
 		listview.setAdapter(adapter);
 	}
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
 		if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
 			if(System.currentTimeMillis() - exitTime > 2000){
 				Toast.makeText(this, R.string.QuitAppTips, Toast.LENGTH_SHORT).show();
@@ -156,26 +140,8 @@ public class ContentActivity extends Activity {
 		return super.onKeyDown(keyCode, event);
 	}
 
-	private void updateBackgroundDrawable(){
-		String strPath = ContentManager.getInstance().getBgImagePath();
-		int iResult = 1;
-		if(strPath == null){
-			Drawable drawable = this.getResources().getDrawable(R.drawable.background_img);
-			if(drawable != null){
-				getWindow().setBackgroundDrawable(drawable);
-				iResult = 0;
-			}
-		}
-		if(iResult != 0){
-			Drawable drawable = Drawable.createFromPath(strPath);
-			if(drawable != null){
-				getWindow().setBackgroundDrawable(drawable);
-			}
-		}
-	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
 		switch(requestCode){
 			case FILE_SELECT_CODE:
 			{
@@ -198,37 +164,8 @@ public class ContentActivity extends Activity {
 						}*/
 						DisplayMetrics metrics = new DisplayMetrics(); 
 						getWindowManager().getDefaultDisplay().getMetrics(metrics);
-						
-						File fileBg = new File(ContentManager.getInstance().getBgImagePath());
-						if(fileBg.exists()){
-							fileBg.delete();
-						}
-						Uri uriSave = Uri.fromFile(fileBg);
-						if(uriSave != null){
-							Intent intent = new Intent();
-							intent.setAction("com.android.camera.action.CROP");
-							intent.setDataAndType(uri, "image/");
-							intent.putExtra("crop", true);
-							intent.putExtra("aspectX", metrics.widthPixels);
-							intent.putExtra("aspectY", metrics.heightPixels);
-							intent.putExtra("outputX", metrics.widthPixels);
-							intent.putExtra("outputY", metrics.heightPixels);
-							intent.putExtra("scale", true);
-							intent.putExtra("scaleUpIfNeeded", true);
-							intent.putExtra("return-data", false);
-							intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSave);
-							intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG.toString());
-							startActivityForResult(intent, IMAGE_CROP_CODE);
-						}
+
 					}	
-				}
-				updateBackgroundDrawable();
-				break;
-			}
-			case IMAGE_CROP_CODE:
-			{
-				if(resultCode == RESULT_OK){
-					updateBackgroundDrawable();
 				}
 				break;
 			}

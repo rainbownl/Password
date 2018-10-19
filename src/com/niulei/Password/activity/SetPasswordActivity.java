@@ -1,9 +1,7 @@
-package com.niulei.Password;
+package com.niulei.password.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,26 +11,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import com.niulei.password.R;
+import com.niulei.password.content.DBContentManager;
 
 public class SetPasswordActivity extends Activity implements OnClickListener{
 	public static final String OPT_FIRSTIN = "first_in";
 	private byte bMode = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.set_password);
 		
-		Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
+		Button btnSubmit = findViewById(R.id.btnSubmit);
 		btnSubmit.setOnClickListener(this);
 		Intent intent = this.getIntent();
 		Bundle bundle = intent.getExtras();
-		bMode = bundle.getByte(OPT_FIRSTIN);
+		if (bundle != null) {
+			bMode = bundle.getByte(OPT_FIRSTIN);
+		}
 		if(bMode == 1){
 			Toast.makeText(this, R.string.SetPasswordTip, Toast.LENGTH_LONG).show();
 		}
 
-		EditText edtSet2 = (EditText)findViewById(R.id.edtPassword2);
+		EditText edtSet2 = findViewById(R.id.edtPassword2);
 		if (edtSet2 != null){
 			edtSet2.addTextChangedListener(new TextWatcher() {
 				@Override
@@ -42,11 +43,14 @@ public class SetPasswordActivity extends Activity implements OnClickListener{
 
 				@Override
 				public void onTextChanged(CharSequence s, int start, int before, int count) {
-					EditText edtSet = (EditText)findViewById(R.id.edtPassword);
+					EditText edtSet = findViewById(R.id.edtPassword);
 					if (edtSet != null){
 						String s1 = edtSet.getText().toString();
+						ImageView imageCheck = findViewById(R.id.imgViewPassMatch);
 						if (s1.compareTo(s.toString()) == 0){
-
+							imageCheck.setVisibility(View.VISIBLE);
+						}else{
+							imageCheck.setVisibility(View.INVISIBLE);
 						}
 					}
 				}
@@ -61,12 +65,10 @@ public class SetPasswordActivity extends Activity implements OnClickListener{
 	}
 	@Override
 	public void onClick(View view) {
-		// TODO Auto-generated method stub
-		switch(view.getId())
-		{
+		switch(view.getId()) {
 		case R.id.btnSubmit:
-			EditText edtSet1 = (EditText)findViewById(R.id.edtPassword);
-			EditText edtSet2 = (EditText)findViewById(R.id.edtPassword2);
+			EditText edtSet1 = findViewById(R.id.edtPassword);
+			EditText edtSet2 = findViewById(R.id.edtPassword2);
 			String str1 = edtSet1.getText().toString();
 			String str2 = edtSet2.getText().toString();
 			if(str1 != null && str1.length() <= 0){
@@ -74,14 +76,11 @@ public class SetPasswordActivity extends Activity implements OnClickListener{
 			}
 			else if(str1.equals(str2))
 			{
-				//SharedPreferences.Editor editor = getSharedPreferences("OPT_PASSWORD", MODE_PRIVATE).edit();
-				//editor.putString("password", str1);
-				//editor.commit();
-				ContentManager contentmanager = ContentManager.getInstance();
-				contentmanager.SetLicense(str1);
-				contentmanager.writeData();
+				DBContentManager contentmanager = DBContentManager.Companion.getInstance(getApplicationContext());
+				contentmanager.writeLicense(str1);
 				if(bMode == 1 || bMode == 2){
-					Intent intent = new Intent(this, ContentActivity.class);
+					//Intent intent = new Intent(this, ContentActivity.class);
+					Intent intent = new Intent(this, RecyclerContentActivity.class);
 					startActivity(intent);
 				}
 				this.finish();
@@ -93,23 +92,4 @@ public class SetPasswordActivity extends Activity implements OnClickListener{
 			break;
 		}
 	}
-
-	private void updateBackgroundDrawable(){
-		String strPath = ContentManager.getInstance().getBgImagePath();
-		int iResult = 1;
-		if(strPath == null){
-			Drawable drawable = this.getResources().getDrawable(R.drawable.background_img);
-			if(drawable != null){
-				getWindow().setBackgroundDrawable(drawable);
-				iResult = 0;
-			}
-		}
-		if(iResult != 0){
-			Drawable drawable = Drawable.createFromPath(strPath);
-			if(drawable != null){
-				getWindow().setBackgroundDrawable(drawable);
-			}
-		}
-	}
-
 }

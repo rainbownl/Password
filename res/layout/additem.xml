@@ -1,69 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal" >
-    <LinearLayout 
-        android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    android:layout_gravity="center_vertical" >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-			android:layout_margin="10dp"
-			android:textColor="@color/text_color"
-            android:text="@string/InputTitle" />
-        <EditText 
-            android:id="@+id/edtAddTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-		    android:padding="10dp"
-			android:layout_margin="10dp"
-			android:background="@color/textview_bgcolor"
-			android:textColor="@color/text_color"
-            android:singleLine="true"	/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-			android:layout_margin="10dp"
-			android:textColor="@color/text_color"
-            android:text="@string/InputUsername" />
-        <EditText 
-            android:id="@+id/edtAddUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-		    android:padding="10dp"
-			android:layout_margin="10dp"
-			android:background="@color/textview_bgcolor"
-			android:textColor="@color/text_color"
-            android:singleLine="true"	/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-			android:layout_margin="10dp"
-			android:textColor="@color/text_color"
-            android:text="@string/InputPassword" />
-        <EditText 
-            android:id="@+id/edtAddPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-		    android:padding="10dp"
-			android:layout_margin="10dp"
-			android:background="@color/textview_bgcolor"
-			android:textColor="@color/text_color"
-            android:singleLine="true"	/>
-        <Button
-            android:id="@+id/btnOK"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-		    android:padding="10dp"
-			android:layout_margin="10dp"
-            android:text="@string/Confirm"
-			android:background="@color/button_lightgray"/>
-    </LinearLayout>
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/InputTitle"
+        android:textColor="@color/text_color"/>
+
+    <EditText
+        android:id="@+id/edtAddTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/textview_bgcolor"
+        android:inputType="text"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:hint="请输入"
+        android:textColor="@color/text_color"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/InputUsername"
+        android:textColor="@color/text_color"/>
+
+    <EditText
+        android:id="@+id/edtAddUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/textview_bgcolor"
+        android:inputType="text"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:hint="请输入"
+        android:textColor="@color/text_color"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/InputPassword"
+        android:textColor="@color/text_color"/>
+
+    <EditText
+        android:id="@+id/edtAddPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/textview_bgcolor"
+        android:hint="请输入"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/text_color"/>
+
+    <Button
+        android:id="@+id/btnOK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_bgcolor_selector"
+        android:padding="10dp"
+        android:text="@string/Confirm"/>
 </LinearLayout>

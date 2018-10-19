@@ -1,22 +1,24 @@
-package com.niulei.Password;
+package com.niulei.password.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.niulei.password.content.ContentItem;
+import com.niulei.password.R;
+import com.niulei.password.content.DBContentManager;
+
 public class ItemDetailActivity extends Activity implements OnClickListener{
 	public static final String OPT_DETAIL_INDEX = "itemDetailIndex";
 	private int index = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.itemdetail);
 		Button btnEdit = (Button)findViewById(R.id.btnDetailEdit);
@@ -26,18 +28,22 @@ public class ItemDetailActivity extends Activity implements OnClickListener{
 		
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
-		index = bundle.getInt(OPT_DETAIL_INDEX);
-		ContentManager contentManager = ContentManager.getInstance();
-		if(contentManager.getNumOfItem() > 0 && index >= 0 && index < contentManager.getNumOfItem()){
-			TextView tvUsername = (TextView)findViewById(R.id.tvDetailUsername);
-			tvUsername.setText(contentManager.getUsername(index));
-			
-			TextView tvPassword = (TextView)findViewById(R.id.tvDetailPassword);
-			tvPassword.setText(contentManager.getPassword(index));
+		if (bundle != null) {
+			index = bundle.getInt(OPT_DETAIL_INDEX);
+		}
+		DBContentManager contentManager = DBContentManager.Companion.getInstance(getApplicationContext());
+		if(contentManager.getCount() > 0 && index >= 0 && index < contentManager.getCount()){
+			ContentItem item = contentManager.getItem(index);
 
-			TextView tvTitle = (TextView)findViewById(R.id.textView_Title);
+			TextView tvUsername = findViewById(R.id.tvDetailUsername);
+			tvUsername.setText(item.getUserName());
+			
+			TextView tvPassword = findViewById(R.id.tvDetailPassword);
+			tvPassword.setText(item.getPassword());
+
+			TextView tvTitle = findViewById(R.id.textView_Title);
 			if (tvTitle != null){
-				tvTitle.setText(contentManager.getTitle(index));
+				tvTitle.setText(item.getTitle());
 			}
 		}
 		//updateBackgroundDrawable();
@@ -45,7 +51,6 @@ public class ItemDetailActivity extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View view) {
-		// TODO Auto-generated method stub
 		switch(view.getId()){
 		case R.id.btnDetailEdit:
 			Intent intent = new Intent(this, AddItemActivity.class);
@@ -61,10 +66,8 @@ public class ItemDetailActivity extends Activity implements OnClickListener{
 
 					@Override
 					public void onClick(DialogInterface dlg, int witch) {
-						// TODO Auto-generated method stub
-						ContentManager contentmanager = ContentManager.getInstance();
-						contentmanager.deleteItem(index);
-						contentmanager.writeData();
+						DBContentManager contentmanager = DBContentManager.Companion.getInstance(getApplicationContext());
+						contentmanager.delete(contentmanager.getItem(index).getTitle());
 						ItemDetailActivity.this.finish();
 					}
 				})
@@ -73,22 +76,4 @@ public class ItemDetailActivity extends Activity implements OnClickListener{
 			break;
 		}
 	}
-	private void updateBackgroundDrawable(){
-		String strPath = ContentManager.getInstance().getBgImagePath();
-		int iResult = 1;
-		if(strPath == null){
-			Drawable drawable = this.getResources().getDrawable(R.drawable.background_img);
-			if(drawable != null){
-				getWindow().setBackgroundDrawable(drawable);
-				iResult = 0;
-			}
-		}
-		if(iResult != 0){
-			Drawable drawable = Drawable.createFromPath(strPath);
-			if(drawable != null){
-				getWindow().setBackgroundDrawable(drawable);
-			}
-		}
-	}
-
 }
