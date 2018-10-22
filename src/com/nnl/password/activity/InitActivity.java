@@ -1,10 +1,10 @@
-package com.niulei.password.activity;
+package com.nnl.password.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.niulei.password.content.DBContentManager;
+import com.nnl.password.content.DBContentManager;
 
 public class InitActivity extends Activity {
 

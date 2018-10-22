@@ -1,7 +1,6 @@
-package com.niulei.password.activity
+package com.nnl.password.activity
 
 import android.app.Activity
-import android.app.Fragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,13 +11,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
-import com.niulei.password.R
-import com.niulei.password.content.DBContentManager
+import com.nnl.password.R
+import com.nnl.password.content.DBContentManager
 import java.util.*
 
 class RecyclerContentActivity : Activity(),MenuFragment.OnFragmentInteractionListener {
 
-    private var menuFragment: MenuFragment? = null
     var contentManager: DBContentManager? = null
 
     private var recyclerView: RecyclerView? = null
@@ -28,15 +26,6 @@ class RecyclerContentActivity : Activity(),MenuFragment.OnFragmentInteractionLis
                                var order: Int, var title: CharSequence){
         DELETE(0, 0, 0, "删除"),
         EDIT(0, 1, 1, "编辑"),
-    }
-
-    private fun showFragment(fragment: Fragment, bShow: Boolean){
-        var fragmentTransaction = fragmentManager.beginTransaction()
-        if (bShow) {
-            fragmentTransaction.show(fragment)
-        }else {
-            fragmentTransaction.hide(fragment)
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,11 +38,6 @@ class RecyclerContentActivity : Activity(),MenuFragment.OnFragmentInteractionLis
         var divider = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         divider.setDrawable(ContextCompat.getDrawable(this, R.drawable.recycler_devider)!!)
         recyclerView?.addItemDecoration(divider)
-
-        /*var fragmentTransaction = fragmentManager.beginTransaction()
-        menuFragment = MenuFragment.newInstance()
-        fragmentTransaction.add(R.id.content_recycler_layout, menuFragment)
-        fragmentTransaction.commit()*/
     }
 
     override fun onResume() {
@@ -82,7 +66,6 @@ class RecyclerContentActivity : Activity(),MenuFragment.OnFragmentInteractionLis
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-            //var view = LinearLayout.inflate(baseContext, R.layout.recycler_view_item, null)
             var view = LayoutInflater.from(baseContext).inflate(R.layout.recycler_view_item, parent, false)
             var holder = MyViewHolder(view)
             holder.tvItemTitle = view.findViewById(R.id.textView_recycler_view_item)

@@ -1,4 +1,4 @@
-package com.niulei.password.database
+package com.nnl.password.database
 
 class DBDefines {
     companion object {

@@ -8,22 +8,20 @@
     tools:context=".activity.RecyclerContentActivity"
     android:id="@+id/content_recycler_layout">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/fragment_menu"
             android:id="@+id/content_recycler_view">
         </android.support.v7.widget.RecyclerView>
 
-    </LinearLayout>
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:name="com.niulei.password.activity.MenuFragment"
-        android:id="@+id/fragment_menu" >
-    </fragment>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:name="com.nnl.password.activity.MenuFragment"
+            android:id="@+id/fragment_menu" >
+        </fragment>
 </RelativeLayout>

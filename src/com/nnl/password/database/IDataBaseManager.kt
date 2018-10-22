@@ -1,4 +1,4 @@
-package com.niulei.password.database
+package com.nnl.password.database
 
 interface IDataBaseManager {
     fun insert(title: String, username: String, password: String)

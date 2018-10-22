@@ -1,4 +1,4 @@
-package com.niulei.password.encrypt
+package com.nnl.password.encrypt
 
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec

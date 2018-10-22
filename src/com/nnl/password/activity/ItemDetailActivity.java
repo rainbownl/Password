@@ -1,4 +1,4 @@
-package com.niulei.password.activity;
+package com.nnl.password.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,9 +10,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.niulei.password.content.ContentItem;
-import com.niulei.password.R;
-import com.niulei.password.content.DBContentManager;
+import com.nnl.password.content.ContentItem;
+import com.nnl.password.R;
+import com.nnl.password.content.DBContentManager;
 
 public class ItemDetailActivity extends Activity implements OnClickListener{
 	public static final String OPT_DETAIL_INDEX = "itemDetailIndex";
@@ -21,30 +21,15 @@ public class ItemDetailActivity extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.itemdetail);
-		Button btnEdit = (Button)findViewById(R.id.btnDetailEdit);
+		Button btnEdit = findViewById(R.id.btnDetailEdit);
 		btnEdit.setOnClickListener(this);
-		Button btnDelete = (Button)findViewById(R.id.btnDetailDelete);
+		Button btnDelete = findViewById(R.id.btnDetailDelete);
 		btnDelete.setOnClickListener(this);
 		
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
 		if (bundle != null) {
 			index = bundle.getInt(OPT_DETAIL_INDEX);
-		}
-		DBContentManager contentManager = DBContentManager.Companion.getInstance(getApplicationContext());
-		if(contentManager.getCount() > 0 && index >= 0 && index < contentManager.getCount()){
-			ContentItem item = contentManager.getItem(index);
-
-			TextView tvUsername = findViewById(R.id.tvDetailUsername);
-			tvUsername.setText(item.getUserName());
-			
-			TextView tvPassword = findViewById(R.id.tvDetailPassword);
-			tvPassword.setText(item.getPassword());
-
-			TextView tvTitle = findViewById(R.id.textView_Title);
-			if (tvTitle != null){
-				tvTitle.setText(item.getTitle());
-			}
 		}
 		//updateBackgroundDrawable();
 	}
@@ -74,6 +59,26 @@ public class ItemDetailActivity extends Activity implements OnClickListener{
 				.setNegativeButton(R.string.DonotDelete, null)
 				.show();
 			break;
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		DBContentManager contentManager = DBContentManager.Companion.getInstance(getApplicationContext());
+		if(contentManager.getCount() > 0 && index >= 0 && index < contentManager.getCount()){
+			ContentItem item = contentManager.getItem(index);
+
+			TextView tvUsername = findViewById(R.id.tvDetailUsername);
+			tvUsername.setText(item.getUserName());
+
+			TextView tvPassword = findViewById(R.id.tvDetailPassword);
+			tvPassword.setText(item.getPassword());
+
+			TextView tvTitle = findViewById(R.id.textView_Title);
+			if (tvTitle != null){
+				tvTitle.setText(item.getTitle());
+			}
 		}
 	}
 }

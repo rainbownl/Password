@@ -1,4 +1,4 @@
-package com.niulei.password.activity;
+package com.nnl.password.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.niulei.password.content.ContentItem;
-import com.niulei.password.R;
-import com.niulei.password.content.DBContentManager;
+import com.nnl.password.content.ContentItem;
+import com.nnl.password.R;
+import com.nnl.password.content.DBContentManager;
 
 public class AddItemActivity extends Activity implements OnClickListener{
 	public static final String OPT_MODIFY_OR_ADD = "modify_or_add"; //0 添加 1 修改

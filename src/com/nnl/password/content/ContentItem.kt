@@ -1,4 +1,4 @@
-package com.niulei.password.content
+package com.nnl.password.content
 
 class ContentItem() {
     constructor(in_title: String, in_username: String, in_password: String): this(){

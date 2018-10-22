@@ -1,4 +1,4 @@
-package com.niulei.password.activity;
+package com.nnl.password.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.niulei.password.R;
-import com.niulei.password.content.DBContentManager;
+import com.nnl.password.R;
+import com.nnl.password.content.DBContentManager;
 
 public class LoginActivity extends Activity implements OnClickListener{
     /** Called when the activity is first created. */

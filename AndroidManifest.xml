@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.niulei.password"
+          package="com.nnl.password"
           android:versionCode="1"
           android:versionName="1.0">
 
@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.InitActivity"
+            android:name="com.nnl.password.activity.InitActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name">
             <intent-filter>
@@ -31,30 +31,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.nnl.password.activity.LoginActivity"
             android:label="Login"
             android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
         <activity
-            android:name=".activity.SetPasswordActivity"
+            android:name="com.nnl.password.activity.SetPasswordActivity"
             android:label="SetPassword"
             android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
         <activity
-            android:name=".activity.ContentActivity"
+            android:name="com.nnl.password.activity.ContentActivity"
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".activity.AddItemActivity"
+            android:name="com.nnl.password.activity.AddItemActivity"
             android:label="AddItem"
             android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
         <activity
-            android:name=".activity.ItemDetailActivity"
+            android:name="com.nnl.password.activity.ItemDetailActivity"
             android:label="Detail">
         </activity>
         <activity
-            android:name=".activity.RecyclerContentActivity"
+            android:name="com.nnl.password.activity.RecyclerContentActivity"
             android:label="Content">
         </activity>
     </application>

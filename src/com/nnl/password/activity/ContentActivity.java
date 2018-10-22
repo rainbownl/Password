@@ -1,4 +1,4 @@
-package com.niulei.password.activity;
+package com.nnl.password.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.niulei.password.R;
-import com.niulei.password.content.DBContentManager;
+import com.nnl.password.R;
+import com.nnl.password.content.DBContentManager;
 
 public class ContentActivity extends Activity {
 	private static final int MENU_GROUP_ID = 0;

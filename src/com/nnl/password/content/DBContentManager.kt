@@ -1,10 +1,10 @@
-package com.niulei.password.content
+package com.nnl.password.content
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.niulei.password.database.DBDefines
-import com.niulei.password.database.DataBaseOpenHelper
-import com.niulei.password.database.IDataBaseManager
+import com.nnl.password.database.DBDefines
+import com.nnl.password.database.DataBaseOpenHelper
+import com.nnl.password.database.IDataBaseManager
 
 class DBContentManager private constructor(context: Context) : IDataBaseManager{
     companion object {

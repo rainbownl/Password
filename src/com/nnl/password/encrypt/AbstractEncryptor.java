@@ -1,4 +1,4 @@
-package com.niulei.password.encrypt;
+package com.nnl.password.encrypt;
 
 public abstract class AbstractEncryptor {
 	public abstract byte[] encrypt(byte[] buffer);
