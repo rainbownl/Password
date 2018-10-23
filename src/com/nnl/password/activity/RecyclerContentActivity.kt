@@ -71,8 +71,6 @@ class RecyclerContentActivity : Activity(),MenuFragment.OnFragmentInteractionLis
             holder.tvItemTitle = view.findViewById(R.id.textView_recycler_view_item)
             return holder
         }
-
-
     }
     override fun onFragmentInteraction(uri: Uri){
 
@@ -112,5 +110,10 @@ class RecyclerContentActivity : Activity(),MenuFragment.OnFragmentInteractionLis
             return
         }
         super.onBackPressed()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        contentManager?.uninit()
     }
 }

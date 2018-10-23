@@ -10,7 +10,6 @@ class DataBaseOpenHelper(context: Context, name: String, cursorFactory: SQLiteDa
 
     }
     override fun onCreate(db: SQLiteDatabase?) {
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
