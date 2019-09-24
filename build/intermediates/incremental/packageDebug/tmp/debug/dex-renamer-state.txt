@@ -1,0 +1,4 @@
+#Tue Mar 26 17:35:15 CST 2019
+base.0=E\:\\Android\\workspace_PswManager\\Password\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
